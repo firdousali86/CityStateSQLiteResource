@@ -28,7 +28,7 @@
     NSString *Data = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil ];
     if (Data)
     {
-        NSArray *myText = [Data componentsSeparatedByString:@"eol"];
+        NSArray *myText = [Data componentsSeparatedByString:@",eol"];
         NSInteger idx;
         for (idx = 0; idx < myText.count; idx++) {
             NSString *data =[myText objectAtIndex:idx];
