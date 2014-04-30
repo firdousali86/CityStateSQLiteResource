@@ -21,6 +21,7 @@
 		8DA330FB1910C69E0096D975 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA330DD1910C69E0096D975 /* UIKit.framework */; };
 		8DA331031910C69E0096D975 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DA331011910C69E0096D975 /* InfoPlist.strings */; };
 		8DA331051910C69E0096D975 /* StateCityExtractionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA331041910C69E0096D975 /* StateCityExtractionTests.m */; };
+		8DA331101910C8470096D975 /* zip_code_database.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8DA3310F1910C8470096D975 /* zip_code_database.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		8DA331001910C69E0096D975 /* StateCityExtractionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StateCityExtractionTests-Info.plist"; sourceTree = "<group>"; };
 		8DA331021910C69E0096D975 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8DA331041910C69E0096D975 /* StateCityExtractionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StateCityExtractionTests.m; sourceTree = "<group>"; };
+		8DA3310F1910C8470096D975 /* zip_code_database.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zip_code_database.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		8DA330DF1910C69E0096D975 /* StateCityExtraction */ = {
 			isa = PBXGroup;
 			children = (
+				8DA3310E1910C8470096D975 /* Resources */,
 				8DA330E81910C69E0096D975 /* AppDelegate.h */,
 				8DA330E91910C69E0096D975 /* AppDelegate.m */,
 				8DA330EB1910C69E0096D975 /* Main.storyboard */,
@@ -150,6 +153,14 @@
 				8DA331011910C69E0096D975 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8DA3310E1910C8470096D975 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8DA3310F1910C8470096D975 /* zip_code_database.csv */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DA331101910C8470096D975 /* zip_code_database.csv in Resources */,
 				8DA330F21910C69E0096D975 /* Images.xcassets in Resources */,
 				8DA330E41910C69E0096D975 /* InfoPlist.strings in Resources */,
 				8DA330ED1910C69E0096D975 /* Main.storyboard in Resources */,
