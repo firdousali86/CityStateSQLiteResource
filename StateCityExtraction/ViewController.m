@@ -11,6 +11,7 @@
 //http://www.mapsofworld.com/usa/zipcodes/colorado/
 
 #import "ViewController.h"
+#import "ZeeSQLiteHelper.h"
 
 @interface ViewController ()
 
@@ -28,19 +29,21 @@
     NSString *Data = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil ];
     if (Data)
     {
-        NSArray *myText = [Data componentsSeparatedByString:@",eol"];
+        NSArray *records = [Data componentsSeparatedByString:@",eol"];
         NSInteger idx;
-        for (idx = 0; idx < myText.count; idx++) {
-            //zip,type,primary_city,acceptable_cities,unacceptable_cities,state,county,timezone,area_codes,latitude,longitude,world_region,country,decommissioned,estimated_population,notes
-            NSString *data =[myText objectAtIndex:idx];
-            NSLog(@"%@", data);
-            id x = [NSNumber numberWithFloat:0+idx*0.002777778];
-            id y = [NSDecimalNumber decimalNumberWithString:data];
-            [contentArray addObject:
-             [NSMutableDictionary dictionaryWithObjectsAndKeys:x, @"x", y, @"y",nil]];
+        for (idx = 0; idx < records.count; idx++) {
+            //zip,type,primary_city,acceptable_cities,unacceptable_cities,state,county,timezone,area_codes,latitude,longitude,world_region,country,decommissioned,estimated_population
+            NSString *data =[records objectAtIndex:idx];
+            NSLog(@"DSFGLKJ SDFG: %@", data);
+            //NSArray *fields = [Data componentsSeparatedByString:@","];
+            
         }
         
-        NSLog(@"FGSDFGSDFG: %@", contentArray);
+        
+        /*NSString *query = @"insert into rawData (zip,type,primary_city,acceptable_cities,unacceptable_cities,state,county,timezone,area_codes,latitude,longitude,world_region,country,decommissioned,estimated_population) VALUES('Deserts')";
+        [ZeeSQLiteHelper initializeSQLiteDB];
+        [ZeeSQLiteHelper executeQuery:query];
+        [ZeeSQLiteHelper closeDatabase];*/
     }
 }
 
