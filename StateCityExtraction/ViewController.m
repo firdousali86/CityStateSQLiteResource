@@ -31,6 +31,7 @@
         NSArray *myText = [Data componentsSeparatedByString:@",eol"];
         NSInteger idx;
         for (idx = 0; idx < myText.count; idx++) {
+            //zip,type,primary_city,acceptable_cities,unacceptable_cities,state,county,timezone,area_codes,latitude,longitude,world_region,country,decommissioned,estimated_population,notes
             NSString *data =[myText objectAtIndex:idx];
             NSLog(@"%@", data);
             id x = [NSNumber numberWithFloat:0+idx*0.002777778];
