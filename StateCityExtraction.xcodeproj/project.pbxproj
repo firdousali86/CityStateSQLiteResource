@@ -22,6 +22,9 @@
 		8DA331031910C69E0096D975 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DA331011910C69E0096D975 /* InfoPlist.strings */; };
 		8DA331051910C69E0096D975 /* StateCityExtractionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA331041910C69E0096D975 /* StateCityExtractionTests.m */; };
 		8DA331101910C8470096D975 /* zip_code_database.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8DA3310F1910C8470096D975 /* zip_code_database.csv */; };
+		8DDA864919112D2800E721D5 /* ZeeSQLiteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDA864819112D2800E721D5 /* ZeeSQLiteHelper.m */; };
+		8DDA864B19112F3500E721D5 /* citystatedata.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8DDA864A19112F3500E721D5 /* citystatedata.sqlite */; };
+		8DDA864D19112F9900E721D5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DDA864C19112F9900E721D5 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,10 @@
 		8DA331021910C69E0096D975 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8DA331041910C69E0096D975 /* StateCityExtractionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StateCityExtractionTests.m; sourceTree = "<group>"; };
 		8DA3310F1910C8470096D975 /* zip_code_database.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zip_code_database.csv; sourceTree = "<group>"; };
+		8DDA864719112D2800E721D5 /* ZeeSQLiteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZeeSQLiteHelper.h; path = Helper/ZeeSQLiteHelper.h; sourceTree = "<group>"; };
+		8DDA864819112D2800E721D5 /* ZeeSQLiteHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZeeSQLiteHelper.m; path = Helper/ZeeSQLiteHelper.m; sourceTree = "<group>"; };
+		8DDA864A19112F3500E721D5 /* citystatedata.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = citystatedata.sqlite; sourceTree = "<group>"; };
+		8DDA864C19112F9900E721D5 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DDA864D19112F9900E721D5 /* libsqlite3.dylib in Frameworks */,
 				8DA330DC1910C69E0096D975 /* CoreGraphics.framework in Frameworks */,
 				8DA330DE1910C69E0096D975 /* UIKit.framework in Frameworks */,
 				8DA330DA1910C69E0096D975 /* Foundation.framework in Frameworks */,
@@ -103,6 +111,7 @@
 		8DA330D81910C69D0096D975 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8DDA864C19112F9900E721D5 /* libsqlite3.dylib */,
 				8DA330D91910C69D0096D975 /* Foundation.framework */,
 				8DA330DB1910C69E0096D975 /* CoreGraphics.framework */,
 				8DA330DD1910C69E0096D975 /* UIKit.framework */,
@@ -114,6 +123,7 @@
 		8DA330DF1910C69E0096D975 /* StateCityExtraction */ = {
 			isa = PBXGroup;
 			children = (
+				8DDA864619112D0F00E721D5 /* Helper */,
 				8DA3310E1910C8470096D975 /* Resources */,
 				8DA330E81910C69E0096D975 /* AppDelegate.h */,
 				8DA330E91910C69E0096D975 /* AppDelegate.m */,
@@ -158,9 +168,19 @@
 		8DA3310E1910C8470096D975 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8DDA864A19112F3500E721D5 /* citystatedata.sqlite */,
 				8DA3310F1910C8470096D975 /* zip_code_database.csv */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		8DDA864619112D0F00E721D5 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				8DDA864719112D2800E721D5 /* ZeeSQLiteHelper.h */,
+				8DDA864819112D2800E721D5 /* ZeeSQLiteHelper.m */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +261,7 @@
 			files = (
 				8DA331101910C8470096D975 /* zip_code_database.csv in Resources */,
 				8DA330F21910C69E0096D975 /* Images.xcassets in Resources */,
+				8DDA864B19112F3500E721D5 /* citystatedata.sqlite in Resources */,
 				8DA330E41910C69E0096D975 /* InfoPlist.strings in Resources */,
 				8DA330ED1910C69E0096D975 /* Main.storyboard in Resources */,
 			);
@@ -263,6 +284,7 @@
 			files = (
 				8DA330F01910C69E0096D975 /* ViewController.m in Sources */,
 				8DA330EA1910C69E0096D975 /* AppDelegate.m in Sources */,
+				8DDA864919112D2800E721D5 /* ZeeSQLiteHelper.m in Sources */,
 				8DA330E61910C69E0096D975 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +490,7 @@
 				8DA3310A1910C69E0096D975 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8DA3310B1910C69E0096D975 /* Build configuration list for PBXNativeTarget "StateCityExtractionTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +499,7 @@
 				8DA3310D1910C69E0096D975 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -22,6 +22,25 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    NSMutableArray *contentArray = [NSMutableArray array];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"zip_code_database" ofType:@"csv"];
+    NSString *Data = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil ];
+    if (Data)
+    {
+        NSArray *myText = [Data componentsSeparatedByString:@"eol"];
+        NSInteger idx;
+        for (idx = 0; idx < myText.count; idx++) {
+            NSString *data =[myText objectAtIndex:idx];
+            NSLog(@"%@", data);
+            id x = [NSNumber numberWithFloat:0+idx*0.002777778];
+            id y = [NSDecimalNumber decimalNumberWithString:data];
+            [contentArray addObject:
+             [NSMutableDictionary dictionaryWithObjectsAndKeys:x, @"x", y, @"y",nil]];
+        }
+        
+        NSLog(@"FGSDFGSDFG: %@", contentArray);
+    }
 }
 
 - (void)didReceiveMemoryWarning
