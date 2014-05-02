@@ -12,6 +12,7 @@
 
 #import "ViewController.h"
 #import "ZeeSQLiteHelper.h"
+#import "CHCSVParser.h"
 
 @interface ViewController ()
 
@@ -24,34 +25,31 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    NSMutableArray *contentArray = [NSMutableArray array];
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"zip_code_database" ofType:@"csv"];
-    NSString *Data = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil ];
-    if (Data)
-    {
-        NSArray *records = [Data componentsSeparatedByString:@",endofline"];
-        NSInteger idx;
-        
-       [ZeeSQLiteHelper initializeSQLiteDB];
-        
-        for (idx = 0; idx < records.count; idx++) {
-            //zip,type,primary_city,acceptable_cities,unacceptable_cities,state,county,timezone,area_codes,latitude,longitude,world_region,country,decommissioned,estimated_population
-            NSString *data =[records objectAtIndex:idx];
-            NSLog(@"DSFGLKJ SDFG: %@", data);
-            NSArray *fields = [data componentsSeparatedByString:@","];
-            
-            if ([fields count] > 1) {
-                            NSString *queryFormat = [NSString stringWithFormat:@"insert into rawData (zip,type,primary_city,acceptable_cities,unacceptable_cities,state,county,timezone,area_codes,latitude,longitude,world_region,country,decommission,estimated_population) VALUES(%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@)", [self getQuotedString:[fields objectAtIndex:0]],[self getQuotedString:[fields objectAtIndex:1]],[self getQuotedString:[fields objectAtIndex:2]],[self getQuotedString:[fields objectAtIndex:3]],[self getQuotedString:[fields objectAtIndex:4]],[self getQuotedString:[fields objectAtIndex:5]],[self getQuotedString:[fields objectAtIndex:6]],[self getQuotedString:[fields objectAtIndex:7]],[self getQuotedString:[fields objectAtIndex:8]],[self getQuotedString:[fields objectAtIndex:9]],[self getQuotedString:[fields objectAtIndex:10]],[self getQuotedString:[fields objectAtIndex:11]],[self getQuotedString:[fields objectAtIndex:12]],[self getQuotedString:[fields objectAtIndex:13]],[self getQuotedString:[fields objectAtIndex:14]]];
-                
-                            [ZeeSQLiteHelper executeQuery:queryFormat];
-            }
-        }
-        
-        [ZeeSQLiteHelper closeDatabase];
+    NSError *error = nil;
+
+    NSArray *rows = [NSArray arrayWithContentsOfCSVFile:filePath];
+    
+    if (rows == nil) {
+        NSLog(@"error parsing file: %@", error);
+        return;
     }
+
+    [ZeeSQLiteHelper initializeSQLiteDB];
+    
+    for (NSArray *row in rows) {
+        NSString *queryFormat = [NSString stringWithFormat:@"insert into rawData (zip,type,primary_city,acceptable_cities,unacceptable_cities,state,county,timezone,area_codes,latitude,longitude,world_region,country,decommission,estimated_population,notes) VALUES(%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@)", [self getQuotedString:[row objectAtIndex:0]],[self getQuotedString:[row objectAtIndex:1]],[self getQuotedString:[row objectAtIndex:2]],[self getQuotedString:[row objectAtIndex:3]],[self getQuotedString:[row objectAtIndex:4]],[self getQuotedString:[row objectAtIndex:5]],[self getQuotedString:[row objectAtIndex:6]],[self getQuotedString:[row objectAtIndex:7]],[self getQuotedString:[row objectAtIndex:8]],[self getQuotedString:[row objectAtIndex:9]],[self getQuotedString:[row objectAtIndex:10]],[self getQuotedString:[row objectAtIndex:11]],[self getQuotedString:[row objectAtIndex:12]],[self getQuotedString:[row objectAtIndex:13]],[self getQuotedString:[row objectAtIndex:14]],[self getQuotedString:[row objectAtIndex:15]]];
+        
+        [ZeeSQLiteHelper executeQuery:queryFormat];
+    }
+    
+    [ZeeSQLiteHelper closeDatabase];
 }
 
 - (NSString*)getQuotedString:(NSString*)string{
+    string = [string stringByReplacingOccurrencesOfString:@"'"
+                                         withString:@"''"];
+    
     return [NSString stringWithFormat:@"'%@'", string];
 }
 

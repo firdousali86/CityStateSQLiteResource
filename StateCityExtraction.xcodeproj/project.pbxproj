@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D9B09B2191363ED00B262B8 /* zip_code_database.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8D9B09B1191363ED00B262B8 /* zip_code_database.csv */; };
+		8D9B09B6191364BB00B262B8 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B09B5191364BB00B262B8 /* CHCSVParser.m */; };
 		8DA330DA1910C69E0096D975 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA330D91910C69D0096D975 /* Foundation.framework */; };
 		8DA330DC1910C69E0096D975 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA330DB1910C69E0096D975 /* CoreGraphics.framework */; };
 		8DA330DE1910C69E0096D975 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA330DD1910C69E0096D975 /* UIKit.framework */; };
@@ -21,7 +23,6 @@
 		8DA330FB1910C69E0096D975 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA330DD1910C69E0096D975 /* UIKit.framework */; };
 		8DA331031910C69E0096D975 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DA331011910C69E0096D975 /* InfoPlist.strings */; };
 		8DA331051910C69E0096D975 /* StateCityExtractionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA331041910C69E0096D975 /* StateCityExtractionTests.m */; };
-		8DA331101910C8470096D975 /* zip_code_database.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8DA3310F1910C8470096D975 /* zip_code_database.csv */; };
 		8DDA864919112D2800E721D5 /* ZeeSQLiteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDA864819112D2800E721D5 /* ZeeSQLiteHelper.m */; };
 		8DDA864B19112F3500E721D5 /* citystatedata.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8DDA864A19112F3500E721D5 /* citystatedata.sqlite */; };
 		8DDA864D19112F9900E721D5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DDA864C19112F9900E721D5 /* libsqlite3.dylib */; };
@@ -38,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D9B09B1191363ED00B262B8 /* zip_code_database.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zip_code_database.csv; sourceTree = "<group>"; };
+		8D9B09B4191364BB00B262B8 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
+		8D9B09B5191364BB00B262B8 /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
 		8DA330D61910C69D0096D975 /* StateCityExtraction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StateCityExtraction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA330D91910C69D0096D975 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8DA330DB1910C69E0096D975 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -57,7 +61,6 @@
 		8DA331001910C69E0096D975 /* StateCityExtractionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StateCityExtractionTests-Info.plist"; sourceTree = "<group>"; };
 		8DA331021910C69E0096D975 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8DA331041910C69E0096D975 /* StateCityExtractionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StateCityExtractionTests.m; sourceTree = "<group>"; };
-		8DA3310F1910C8470096D975 /* zip_code_database.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zip_code_database.csv; sourceTree = "<group>"; };
 		8DDA864719112D2800E721D5 /* ZeeSQLiteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZeeSQLiteHelper.h; path = Helper/ZeeSQLiteHelper.h; sourceTree = "<group>"; };
 		8DDA864819112D2800E721D5 /* ZeeSQLiteHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZeeSQLiteHelper.m; path = Helper/ZeeSQLiteHelper.m; sourceTree = "<group>"; };
 		8DDA864A19112F3500E721D5 /* citystatedata.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = citystatedata.sqlite; sourceTree = "<group>"; };
@@ -89,6 +92,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D9B09B3191364BB00B262B8 /* CHCSVParser */ = {
+			isa = PBXGroup;
+			children = (
+				8D9B09B4191364BB00B262B8 /* CHCSVParser.h */,
+				8D9B09B5191364BB00B262B8 /* CHCSVParser.m */,
+			);
+			name = CHCSVParser;
+			path = Helper/CHCSVParser;
+			sourceTree = "<group>";
+		};
 		8DA330CD1910C69D0096D975 = {
 			isa = PBXGroup;
 			children = (
@@ -168,8 +181,8 @@
 		8DA3310E1910C8470096D975 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8D9B09B1191363ED00B262B8 /* zip_code_database.csv */,
 				8DDA864A19112F3500E721D5 /* citystatedata.sqlite */,
-				8DA3310F1910C8470096D975 /* zip_code_database.csv */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -177,6 +190,7 @@
 		8DDA864619112D0F00E721D5 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				8D9B09B3191364BB00B262B8 /* CHCSVParser */,
 				8DDA864719112D2800E721D5 /* ZeeSQLiteHelper.h */,
 				8DDA864819112D2800E721D5 /* ZeeSQLiteHelper.m */,
 			);
@@ -259,8 +273,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DA331101910C8470096D975 /* zip_code_database.csv in Resources */,
 				8DA330F21910C69E0096D975 /* Images.xcassets in Resources */,
+				8D9B09B2191363ED00B262B8 /* zip_code_database.csv in Resources */,
 				8DDA864B19112F3500E721D5 /* citystatedata.sqlite in Resources */,
 				8DA330E41910C69E0096D975 /* InfoPlist.strings in Resources */,
 				8DA330ED1910C69E0096D975 /* Main.storyboard in Resources */,
@@ -285,6 +299,7 @@
 				8DA330F01910C69E0096D975 /* ViewController.m in Sources */,
 				8DA330EA1910C69E0096D975 /* AppDelegate.m in Sources */,
 				8DDA864919112D2800E721D5 /* ZeeSQLiteHelper.m in Sources */,
+				8D9B09B6191364BB00B262B8 /* CHCSVParser.m in Sources */,
 				8DA330E61910C69E0096D975 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
