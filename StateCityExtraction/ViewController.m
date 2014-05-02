@@ -40,10 +40,11 @@
             NSLog(@"DSFGLKJ SDFG: %@", data);
             NSArray *fields = [data componentsSeparatedByString:@","];
             
-            NSString *queryFormat = [NSString stringWithFormat:@"insert into rawData (zip,type,primary_city,acceptable_cities,unacceptable_cities,state,county,timezone,area_codes,latitude,longitude,world_region,country,decommission,estimated_population) VALUES(%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@)", [self getQuotedString:[fields objectAtIndex:0]],[self getQuotedString:[fields objectAtIndex:1]],[self getQuotedString:[fields objectAtIndex:2]],[self getQuotedString:[fields objectAtIndex:3]],[self getQuotedString:[fields objectAtIndex:4]],[self getQuotedString:[fields objectAtIndex:5]],[self getQuotedString:[fields objectAtIndex:6]],[self getQuotedString:[fields objectAtIndex:7]],[self getQuotedString:[fields objectAtIndex:8]],[self getQuotedString:[fields objectAtIndex:9]],[self getQuotedString:[fields objectAtIndex:10]],[self getQuotedString:[fields objectAtIndex:11]],[self getQuotedString:[fields objectAtIndex:12]],[self getQuotedString:[fields objectAtIndex:13]],[self getQuotedString:[fields objectAtIndex:14]]];
-
-            [ZeeSQLiteHelper executeQuery:queryFormat];
-
+            if ([fields count] > 1) {
+                            NSString *queryFormat = [NSString stringWithFormat:@"insert into rawData (zip,type,primary_city,acceptable_cities,unacceptable_cities,state,county,timezone,area_codes,latitude,longitude,world_region,country,decommission,estimated_population) VALUES(%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@)", [self getQuotedString:[fields objectAtIndex:0]],[self getQuotedString:[fields objectAtIndex:1]],[self getQuotedString:[fields objectAtIndex:2]],[self getQuotedString:[fields objectAtIndex:3]],[self getQuotedString:[fields objectAtIndex:4]],[self getQuotedString:[fields objectAtIndex:5]],[self getQuotedString:[fields objectAtIndex:6]],[self getQuotedString:[fields objectAtIndex:7]],[self getQuotedString:[fields objectAtIndex:8]],[self getQuotedString:[fields objectAtIndex:9]],[self getQuotedString:[fields objectAtIndex:10]],[self getQuotedString:[fields objectAtIndex:11]],[self getQuotedString:[fields objectAtIndex:12]],[self getQuotedString:[fields objectAtIndex:13]],[self getQuotedString:[fields objectAtIndex:14]]];
+                
+                            [ZeeSQLiteHelper executeQuery:queryFormat];
+            }
         }
         
         [ZeeSQLiteHelper closeDatabase];
