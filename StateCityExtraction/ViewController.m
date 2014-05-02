@@ -29,24 +29,24 @@
     NSString *Data = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil ];
     if (Data)
     {
-        NSArray *records = [Data componentsSeparatedByString:@",eotl"];
+        NSArray *records = [Data componentsSeparatedByString:@",endofline"];
         NSInteger idx;
+        
+       [ZeeSQLiteHelper initializeSQLiteDB];
+        
         for (idx = 0; idx < records.count; idx++) {
             //zip,type,primary_city,acceptable_cities,unacceptable_cities,state,county,timezone,area_codes,latitude,longitude,world_region,country,decommissioned,estimated_population
             NSString *data =[records objectAtIndex:idx];
             NSLog(@"DSFGLKJ SDFG: %@", data);
             NSArray *fields = [data componentsSeparatedByString:@","];
             
-            NSString *queryFormat = [NSString stringWithFormat:@"insert into rawData (zip,type,primary_city,acceptable_cities,unacceptable_cities,state,county,timezone,area_codes,latitude,longitude,world_region,country,decommissioned,estimated_population) VALUES(%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@)", [self getQuotedString:[fields objectAtIndex:0]],[self getQuotedString:[fields objectAtIndex:1]],[self getQuotedString:[fields objectAtIndex:2]],[self getQuotedString:[fields objectAtIndex:3]],[self getQuotedString:[fields objectAtIndex:4]],[self getQuotedString:[fields objectAtIndex:5]],[self getQuotedString:[fields objectAtIndex:6]],[self getQuotedString:[fields objectAtIndex:7]],[self getQuotedString:[fields objectAtIndex:8]],[self getQuotedString:[fields objectAtIndex:9]],[self getQuotedString:[fields objectAtIndex:10]],[self getQuotedString:[fields objectAtIndex:11]],[self getQuotedString:[fields objectAtIndex:12]],[self getQuotedString:[fields objectAtIndex:13]],[self getQuotedString:[fields objectAtIndex:14]]];
-            
-            //NSString *query = @"insert into rawData (zip,type,primary_city,acceptable_cities,unacceptable_cities,state,county,timezone,area_codes,latitude,longitude,world_region,country,decommissioned,estimated_population) VALUES(%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@)";
-            [ZeeSQLiteHelper initializeSQLiteDB];
+            NSString *queryFormat = [NSString stringWithFormat:@"insert into rawData (zip,type,primary_city,acceptable_cities,unacceptable_cities,state,county,timezone,area_codes,latitude,longitude,world_region,country,decommission,estimated_population) VALUES(%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@)", [self getQuotedString:[fields objectAtIndex:0]],[self getQuotedString:[fields objectAtIndex:1]],[self getQuotedString:[fields objectAtIndex:2]],[self getQuotedString:[fields objectAtIndex:3]],[self getQuotedString:[fields objectAtIndex:4]],[self getQuotedString:[fields objectAtIndex:5]],[self getQuotedString:[fields objectAtIndex:6]],[self getQuotedString:[fields objectAtIndex:7]],[self getQuotedString:[fields objectAtIndex:8]],[self getQuotedString:[fields objectAtIndex:9]],[self getQuotedString:[fields objectAtIndex:10]],[self getQuotedString:[fields objectAtIndex:11]],[self getQuotedString:[fields objectAtIndex:12]],[self getQuotedString:[fields objectAtIndex:13]],[self getQuotedString:[fields objectAtIndex:14]]];
+
             [ZeeSQLiteHelper executeQuery:queryFormat];
-            [ZeeSQLiteHelper closeDatabase];
+
         }
         
-        
-        
+        [ZeeSQLiteHelper closeDatabase];
     }
 }
 
